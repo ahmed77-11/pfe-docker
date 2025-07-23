@@ -11,6 +11,10 @@ This project contains a complete microservice-based architecture for a factoring
 
 ---
 
+## For PgAdmin
+mail:admin@admin.com
+password:admin
+
 ## 🚀 Getting Started
 
 ### 🛠 Prerequisites
