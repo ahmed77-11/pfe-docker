@@ -95,6 +95,17 @@ INSERT INTO public.statut_contrat (x_statut_contrat_id_fk, x_statut_contrat_code
 INSERT INTO public.statut_contrat (x_statut_contrat_id_fk, x_statut_contrat_code, x_statut_contrat_dsg, sys_action, sys_adresse_ip, sys_date, sys_user, sys_user_id) VALUES (6, 'SS', 'STATUS_SIGNED', 'CREATE', '127.0.0.1', '2025-03-21 17:44:58.716', 'admin', 1);
 INSERT INTO public.statut_contrat (x_statut_contrat_id_fk, x_statut_contrat_code, x_statut_contrat_dsg, sys_action, sys_adresse_ip, sys_date, sys_user, sys_user_id) VALUES (1, 'SCR', 'STATUS_CONTRAT_REDIGER', 'CREATE', '127.0.0.1', '2025-03-21 17:44:58.716', 'admin', 1);
 
+INSERT INTO public.act_ru_filter (
+    id_, rev_, resource_type_, name_, owner_, query_, properties_
+) VALUES (
+    '88d73dbe-fc2d-11ef-ab35-e89c254c532f',
+    1,
+    'Task',
+    'All Tasks',
+    NULL,
+    '{}',
+    '{"description":"Unfiltered Tasks","priority":1,"color":"#555555","refresh":false,"howUndefinedVariable":false}'
+);
 
 --
 -- TOC entry 5126 (class 0 OID 0)

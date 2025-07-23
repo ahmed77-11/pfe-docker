@@ -51,6 +51,15 @@ services:
     volumes:
       - ./postgres-init:/postgres-init
     entrypoint: ["/postgres-init/seed-and-wait.sh"]
+  # flaskapp:
+  #   image: med-factor/ocr-ai
+  #   container_name: ocr-ai
+  #   ports:
+  #     - "5000:5000"
+  #   depends_on:
+  #     - postgres
+  #     - kafka
+  #   command: ["./run.sh"]
 
 
   # ─────── Spring Microservices ───────
