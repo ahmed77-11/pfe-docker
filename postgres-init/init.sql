@@ -1,0 +1,4 @@
+CREATE DATABASE "Med_FactorDB";
+CREATE DATABASE "Med_FactorUsersDB";
+CREATE DATABASE "Med_FactorContractDB";
+
