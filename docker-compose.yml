@@ -46,25 +46,14 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
-      PGPASSWORD: root     # <--- this is the key
-
+      PGPASSWORD: root
     volumes:
       - ./postgres-init:/postgres-init
     entrypoint: ["/postgres-init/seed-and-wait.sh"]
-  # flaskapp:
-  #   image: med-factor/ocr-ai
-  #   container_name: ocr-ai
-  #   ports:
-  #     - "5000:5000"
-  #   depends_on:
-  #     - postgres
-  #     - kafka
-  #   command: ["./run.sh"]
-
 
   # ─────── Spring Microservices ───────
   api:
-    image: med-factor/tiers
+    image: lbo7/tiers
     container_name: med-factor-tiers
     ports:
       - "8081:8081"
@@ -79,9 +68,8 @@ services:
       - postgres
       - db-seeder
 
-
   users:
-    image: med-factor/users
+    image: lbo7/users
     container_name: med-factor-users
     ports:
       - "8082:8082"
@@ -91,14 +79,15 @@ services:
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: root
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    volumes:
+      - ./users/uploads:/app/static/factoring/users/uploads
     depends_on:
       - kafka
       - postgres
       - db-seeder
 
-
   contract:
-    image: med-factor/contrat
+    image: lbo7/contrat
     container_name: med-factor-contrat
     ports:
       - "8083:8083"
@@ -108,6 +97,10 @@ services:
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: root
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    volumes:
+      - ./contract/uploads:/app/static/factoring/contrat/uploads
+      - ./Contract_PDF:/app/static/factoring/contrat/Contract_PDF
+
     depends_on:
       - kafka
       - postgres
