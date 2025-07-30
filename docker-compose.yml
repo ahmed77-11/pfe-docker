@@ -109,7 +109,7 @@ services:
 
   # ─────── Frontend ───────
   frontend:
-    image: med-factor/front
+    image: lbo7/front
     container_name: med-factor-front
     ports:
       - "5173:80"
